@@ -114,8 +114,9 @@
                     <tbody>
                         <?php
                         $value= $_POST['table'];
+                        echo $value;
                         if($value=='all'){
-                            $sql="SELECT u.image,u.nom,u.prenom,u.email,u.password,u.adresse,u.id from users u where role='v'";
+                            $sql="SELECT u.image,u.nom,u.prenom,u.email,u.password,u.adresse,u.id from commande c,produit p,venduer v,users u where c.codepr=p.code and v.code=p.codev and u.id=v.code";
                         }else if ($value=='paid'){
                             $sql="SELECT u.* from users u,produit where produit.codev=u.id GROUP by u.id";
                         }else if($value=='npaid'){

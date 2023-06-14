@@ -26,21 +26,20 @@
             <h3 class='ps-5 pt-5 mb-5'>ADMIN PANEL</h3>
             
             <div class="d-flex justify-content-center">
-                <nav class='sticky-top first '>
-                    <div>
-                        <div class=" nitem"><a class="nav-link" href="admin.php"><i
-                                    class="fa-brands fa-windows pe-2"></i>DASHBOARD</a></div>
-                        <div class="nitem"><a class="nav-link" href="users.php"><i
-                                    class="fa-solid fa-users pe-2"></i>USERS
-                                </a></div>
-                        <div class="h p-5 nitem"><a class="nav-link" href="sellers.php"><i
-                                    class="fa-solid fa-users-between-lines pe-2"></i></i>SELLERS</a></div>
-                        <div class="nitem"><a class="nav-link" href="sellers.php"><i
-                                    class="fa-solid fa-cart-shopping pe-2"></i>PRODUCTS</a></div>
-                        <div class="nitem"><a class="nav-link" href="index.php"><i
-                                    class="fa-solid fa-right-to-bracket pe-2"></i>EXIT</a></div>
-                    </div>
-                </nav>
+            <nav class='sticky-top first '>
+          <div>
+            <div class=" nitem"><a class="nav-link" href="admin.php"><i
+                  class="fa-brands fa-windows pe-2"></i>DASHBOARD</a></div>
+            <div class="nitem"><a class="nav-link" href="users.php"><i class="fa-solid fa-users pe-2"></i>USERS
+          
+            </div>
+            <div class="h p-5 nitem"><a class="nav-link" href="sellers.php"><i
+                  class="fa-solid fa-users-between-lines pe-2"></i></i>SELLERS</a></div>
+            <div class="nitem"><a class="nav-link" href="adminpost.php"><i class="fa-solid fa-check-to-slot pe-2"></i>POST</a></div>
+            <div class="nitem"><a class="nav-link" href="index.php"><i
+                  class="fa-solid fa-right-to-bracket pe-2"></i>EXIT</a></div>
+          </div>
+        </nav>
             </div>
 
         </div>
@@ -117,7 +116,7 @@
                             
                             ?>
                             <form action="sellerstable.php" method="post">
-                                <button type="submit" name='table' value='paid' class='input2'>see more</button>
+                                <button type="submit" name='table' value='all' class='input2'>see more</button>
                             </form>
                         </h4>
                     </div>

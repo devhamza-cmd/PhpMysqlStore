@@ -24,19 +24,20 @@
     <div class="d-flex">
         <div class="one">
             <h3 class='ps-5 pt-5 mb-5'>ADMIN PANEL</h3>
-            
+
             <div class="d-flex justify-content-center">
                 <nav class='sticky-top first '>
                     <div>
                         <div class=" nitem"><a class="nav-link" href="admin.php"><i
                                     class="fa-brands fa-windows pe-2"></i>DASHBOARD</a></div>
-                        <div class="p-5 h nitem"><a class="nav-link" href="users.php"><i
+                        <div class="h p-5 nitem"><a class="nav-link" href="users.php"><i
                                     class="fa-solid fa-users pe-2"></i>USERS
-                                </a></div>
+
+                        </div>
                         <div class="nitem"><a class="nav-link" href="sellers.php"><i
                                     class="fa-solid fa-users-between-lines pe-2"></i></i>SELLERS</a></div>
-                        <div class="nitem"><a class="nav-link" href="home.php"><i
-                                    class="fa-solid fa-cart-shopping pe-2"></i>PRODUCTS</a></div>
+                        <div class="nitem"><a class="nav-link" href="adminpost.php"><i
+                                    class="fa-solid fa-check-to-slot pe-2"></i>POST</a></div>
                         <div class="nitem"><a class="nav-link" href="index.php"><i
                                     class="fa-solid fa-right-to-bracket pe-2"></i>EXIT</a></div>
                     </div>
@@ -46,7 +47,7 @@
         </div>
         <div class="two">
             <style>
-                .two nav div{
+                .two nav div {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -54,9 +55,9 @@
                 }
             </style>
             <nav>
-                <div >
-                <h3 >USERS</h3>
-                <a class='tobtn searchsellers' href="searchusers.php">search</a>
+                <div>
+                    <h3>USERS</h3>
+                    <a class='tobtn searchsellers' href="searchusers.php">search</a>
                 </div>
             </nav>
             <div class="d-flex  dinfo">
@@ -66,7 +67,7 @@
                         <br>
                         <br>
                         <H5 class='nu' style="opAcity:0.9">USERS</H5>
-                        
+
                         <h4>
                             <?php
                             $sql = "SELECT COUNT(id) as 'total' FROM users where role='u' ";
@@ -76,12 +77,13 @@
                                 echo "<h5 id='value1'>$taotal</h5>";
                             }
 
-                            ?><form action="userstable.php" method="post">
+                            ?>
+                            <form action="userstable.php" method="post">
                                 <button type="submit" name='table' value='all' class='input'>see more</button>
                             </form>
                         </h4>
                     </div>
-<div class="moneydiv">
+                    <div class="moneydiv">
 
                         <i class="fa-solid fa-users"></i>
                         <br>
@@ -97,14 +99,14 @@
                             }
 
 
-        ?>
-    </h4>
-</div>
+                            ?>
+                        </h4>
+                    </div>
                     <div class="moneydiv">
                         <i class="fa-solid fa-users"></i>
                         <br>
                         <br>
-                        <H5 style="opAcity:0.9">PAID  </H5>
+                        <H5 style="opAcity:0.9">PAID </H5>
                         <h4>
                             <?php
                             $sql = "SELECT count(DISTINCT id) as 'total' FROM users u,commande c WHERE u.id=c.codeu ";
@@ -113,7 +115,7 @@
                                 $taotal = $row['total'];
                                 echo "<h5 id='value3'>$taotal</h5>";
                             }
-                            
+
                             ?>
                             <form action="userstable.php" method="post">
                                 <button type="submit" name='table' value='paid' class='input2'>see more</button>
@@ -159,8 +161,8 @@
                             ?>
                         </h4>
                     </div>
-                    
-                    
+
+
 
                 </div>
 
@@ -196,7 +198,7 @@
                         $height = ($x * 100) / $max;
                         $heightfinal = $height * 310 / 100;
                         $heightfinal++;
-                        
+
                         echo "<div  class='d-flex justify-content-center align-items-end' style='height: $heightfinal" . "px" . ";' ></div>";
                     }
 

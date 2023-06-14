@@ -163,6 +163,8 @@ button{
                     $statu=0;
                 } if ($row['role']=='a'){
                     header("location:admin.php");
+                } if ($row['role']=='v'){
+                    header("location:venduer.php");
                 }
             }
             
