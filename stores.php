@@ -30,6 +30,8 @@
               class="fa-sharp  fa-store pe-2"></i></i>stores</a></div>
         <div class="nitem"><a class="nav-link" href="community.php"><i
               class="fa-sharp  fa-retweet pe-2"></i></i>community</a></div>
+              <div class="nitem"><a class="nav-link" href="compte.php"><i
+              class="fa-solid fa-user pe-2"></i></i>Account</a></div>
         <div class="nitem"><a class="nav-link" href="index.php"><i
               class="fa-solid fa-right-to-bracket pe-2"></i>EXIT</a></div>
       </div>

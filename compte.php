@@ -93,7 +93,7 @@ header('location:compte.php');
     <nav class='sticky-top first '>
       <div>
         <div class=" p-5 nitem"><a class="nav-link"><i class="fa-solid fa-shop pe-2"></i>STORE</a></div>
-        <div class=" nitem"><a class="nav-link" href="home.php"><i class="fa-solid fa-house pe-2"></i>Home
+        <div class="nitem"><a class="nav-link" href="home.php"><i class="fa-solid fa-house pe-2"></i>Home
 
         </div>
 
@@ -101,10 +101,12 @@ header('location:compte.php');
               class="fa-solid fa-cart-shopping pe-2"></i>panier</a></div>
         <div class="nitem"><a class="nav-link" href="commande.php"><i
               class="fa-solid fa-truck-fast pe-2"></i></i>commande</a></div>
-              <div class="h nitem"><a class="nav-link" href="stores.php"><i
+              <div class=" nitem"><a class="nav-link" href="stores.php"><i
               class="fa-sharp  fa-store pe-2"></i></i>stores</a></div>
-        <div class="nitem"><a class="nav-link" href="community.php"><i
+        <div class=" nitem"><a class="nav-link" href="community.php"><i
               class="fa-sharp  fa-retweet pe-2"></i></i>community</a></div>
+              <div class="h nitem"><a class="nav-link" href="compte.php"><i
+              class="fa-solid fa-user pe-2"></i></i>Account</a></div>
         <div class="nitem"><a class="nav-link" href="index.php"><i
               class="fa-solid fa-right-to-bracket pe-2"></i>EXIT</a></div>
       </div>
