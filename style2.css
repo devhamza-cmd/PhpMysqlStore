@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    
+}
+.one{
+    background-color: #257DF8;
+    width: 20%;
+    height: 100VH;
+    color: white;
+}
+
+
+nav svg{
+    font-size: 20px;
+    color: white;
+}
+.nitem {
+    padding: 10px;
+    border-radius: 10PX;
+    margin-bottom: 25PX;
+    transition: 0.4s;
+}
+.h{
+    background-color: #599dfd;
+}
+.two{
+    background-color: #E8effa;
+}
+.two nav {
+   
+    width: 80vw;
+    padding-top: 20PX;
+    padding-left: 20PX;
+    padding-bottom: 20PX;
+}
+.dinfo{
+    width: 80vw;
+    height: 34vh;
+    
+}
+.dinfo svg{
+    color: #257DF8;
+    font-size: 30PX;
+}
+.partone{
+    margin:  0 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    
+}
+.moneydiv{
+    
+    border-radius: 10px;
+    width: calc(90%/5);
+    height: 200px;
+ 
+    padding: 20px;
+    background-color:white ;
+    transition: 0.4S;
+}
+
+.moneydiv:hover{
+    background-color: #292929;
+    color: white;
+}
+.partwo{
+width: 50%;
+
+}
+
+.year{
+   
+    width: 80vw;
+    align-items: end;
+    display:  flex;
+    
+}
+.mounth{
+    padding-top: 10px;
+   
+    width: 80vw;
+    display: flex;
+    flex: end;
+    justify-content: space-around;
+
+    
+}
+.month  button {
+    background-color: red;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 330  */
+.year div{
+
+background-color: #c4ddff;;
+width:calc(100%/12);
+margin: 0 2px;
+transition: 0.4s;
+}
+.year div:hover{
+    background-color: #599dfd;
+}
+.mounth button{
+    text-align: center;
+    background-color: transparent;
+   
+    border: none;
+    transition: 0.4s;
+    width: calc(80vw/30);
+}
+.mounth  button:hover{
+    color:#599dfd ;
+}
+.user{
+    paddinG:50px ;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    background-color: #292929;
+    margin: 5px ;
+    width: 80vw;
+    color: white;
+    font-size: 20px;
+    height: 10px;
+}
+.user div{
+   
+    width: calc(80vw/6);
+}
+.user img{
+    height: 80px;
+    width: 80px;
+
+    border-radius: 50%;
+}
+.input,.input2,.input3{
+    background-color:#257df8;
+    padding: 10px;
+    color: white;
+    border-radius:20px;
+    border: none;        
+}
+.tobtn{
+
+font-size: 16px;
+text-align: none;
+text-decoration: none;
+background-color: #257df8;
+color: white;
+
+padding: 10px;
+border-radius: 20px;
+margin-right: 10px;
+transition: 0.4s;
+border: none;
+}
+.tobtn:hover{
+    background-color: #599dfd;
+}
+
+.setting{
+    background-color: #599dfd;
+    width: 83vw;
+    padding: 50px 0;
+}
+.setting input{
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+.setting button{
+    background-color: #1574fa;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    border: none;
+}
+.profile{
+    margin:0 20px;
+    border-radius: 20px;
+    background-color: #C4ddff;
+    width: 78vw;
+    height:450px;;
+    max-height: 450px;
+    overflow-y: scroll;
+}
+.navigation{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+.navigation button{
+    background-color: #1574fa;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bolder;
+    border: none;
+    color: white;
+    transition: 0.4s;
+}
+
+.navigation button:hover{
+    background-color: #599dfd;
+    
+}
+.navigation2{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+.navigation2 button{
+    background-color: #1574fa;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bolder;
+    border: none;
+    color: white;
+    transition: 0.4s;
+}
+
+.navigation2 button:hover{
+    background-color: #599dfd;
+    
+}
+.infoprofile {
+    display: flex;
+  
+    height: 100%;
+}
+.infoprofile .img{
+margin: 60px;
+height: 150px;
+width: 150px;
+border-radius: 50%;
+
+
+
+}
+.infoprofile h2{
+    color: rgb(37, 37, 255);
+}
+nav h3{
+    color: blue;
+}
+.pa{
+    margin-top: 60px;
+}
+.nchild img{
+    height: 60px;
+    width: 60px;
+}
+.nchild{
+    background-color: white;
+    display: flex;
+    
+    justify-content:space-around;
+    margin-bottom: 15px;
+}
+.nchild table{
+width: 100%;
+}
+.more{
+    background-color:rgb(37, 125, 248) ;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius:   10px;
+    transition: 0.4s;
+}
+.more:hover{
+    background-color:rgb(87,156,253) ;
+}
