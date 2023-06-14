@@ -164,7 +164,8 @@ button{
                 } if ($row['role']=='a'){
                     header("location:admin.php");
                 } if ($row['role']=='v'){
-                    header("location:venduer.php");
+                    $_SESSION['user']=$row['id'];
+                    header("location:vendeur.php");
                 }
             }
             

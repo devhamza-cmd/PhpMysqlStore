@@ -90,18 +90,25 @@ header('location:compte.php');
 <body style='background-color:rgb(236, 236, 236)'>
   <div class="d-flex justify-content-between">
     <div class="onee">
- <nav class='fixed-top first pt-5 ' >
-    <div>
-      <div><i class="icon pt-2 fa-solid fa-shop"></i></div>
-      <div><a href="home.php"><i class="icon2 fa-solid fa-house"></i></a></div>
-      <div><a href="panier.php"><i class="icon2 fa-solid fa-cart-shopping"></i></a></div>
-      <div><a href="commande.php"><i class="icon2 fa-solid fa-truck-fast"></i></a></div>
-      <div><a href="stores.php"><i class=" icon2 fa-solid fa-store"></i></a></div>
-      <div><a href="compte.php"><i class="h icon2 ps-1 fa-solid fa-user"></i></a></div>
+    <nav class='sticky-top first '>
+      <div>
+        <div class=" p-5 nitem"><a class="nav-link"><i class="fa-solid fa-shop pe-2"></i>STORE</a></div>
+        <div class=" nitem"><a class="nav-link" href="home.php"><i class="fa-solid fa-house pe-2"></i>Home
 
-      <div><a href="index.php"><i style='margin-top:120px' class="icon2 ps-1 fa-solid fa-right-from-bracket"></i></a></div>
-    </div>
-  </nav>
+        </div>
+
+        <div class="nitem"><a class="nav-link" href="panier.php"><i
+              class="fa-solid fa-cart-shopping pe-2"></i>panier</a></div>
+        <div class="nitem"><a class="nav-link" href="commande.php"><i
+              class="fa-solid fa-truck-fast pe-2"></i></i>commande</a></div>
+              <div class="h nitem"><a class="nav-link" href="stores.php"><i
+              class="fa-sharp  fa-store pe-2"></i></i>stores</a></div>
+        <div class="nitem"><a class="nav-link" href="community.php"><i
+              class="fa-sharp  fa-retweet pe-2"></i></i>community</a></div>
+        <div class="nitem"><a class="nav-link" href="index.php"><i
+              class="fa-solid fa-right-to-bracket pe-2"></i>EXIT</a></div>
+      </div>
+    </nav>
     </div>
     <div class="two ">
       <div class='p-5 infoacc d-flex align-content-center'>
