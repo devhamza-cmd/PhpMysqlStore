@@ -112,6 +112,7 @@
                 echo "<h5>$total</h5>";
               }
               ?>
+                
             </h4>
           </div>
           <div class="moneydiv">
@@ -119,7 +120,9 @@
             <br>
             <br>
             <H5 style="opAcity:0.9">BEST BALANCE</H5>
-            <h4>
+            <h4><div class="table">
+              
+            </div>
               <?php
               $sql = "SELECT COUNT(p.codepr), ((pr.prix)*(COUNT(p.codepr))) as 'total' from panier p , produit pr where pr.code=p.codepr and pr.codev=2 GROUP by p.codepr ORDER BY `total` DESC limit 1
 
@@ -181,7 +184,7 @@
           foreach ($months as $key => $value) {
             $key++;
             echo "<div class='month'>
-    <button type='submit' name='monthseller'  value='$key'>$value</button>
+    <button type='submit' name='month'  value='$key'>$value</button>
 </div>";
           }
           ?>
