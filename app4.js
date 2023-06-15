@@ -4,6 +4,7 @@ $(document).ready(function () {
         element.addEventListener('click',function () { 
            var month =element.value;
            var name=element.name;
+           
            $.ajax({
             url: "sellermonth.php",
             method: "POST", 
@@ -20,3 +21,6 @@ $(document).ready(function () {
          })
     });
         })  
+        
+
+        

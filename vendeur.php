@@ -120,8 +120,14 @@
             <br>
             <br>
             <H5 style="opAcity:0.9">BEST BALANCE</H5>
-            <h4><div class="table">
-              test
+            <h4>
+              <style>
+                .table{
+                  display: none;
+                }
+              </style>
+              <div class="table">
+              
             </div>
               <?php
               $sql = "SELECT COUNT(p.codepr), ((pr.prix)*(COUNT(p.codepr))) as 'total' from panier p , produit pr where pr.code=p.codepr and pr.codev=2 GROUP by p.codepr ORDER BY `total` DESC limit 1

@@ -10,7 +10,7 @@ if ($option=="month"){
     } else {
         $fv="$value";
     }
-    $sql="SELECT month(date),sum(total) as 'total' from commande c,produit pr where c.codepr=pr.code and pr.codev=2 and c.date BETWEEN '2023-$fv-01' and '2023-$fv-31' GROUP BY month(date) order by total DESC limit 1;";
+    $sql="SELECT month(date),sum(total) as 'total' from commande c,produit pr where c.codepr=pr.code and pr.codev=$user and c.date BETWEEN '2023-$fv-01' and '2023-$fv-31' GROUP BY month(date) order by total DESC limit 1;";
    
     $max = 0;
     
@@ -20,7 +20,7 @@ if ($option=="month"){
           $max = $row["total"];
     }
     $sql="SELECT day(Date),Sum(Total) As 'Total' From Commande C,Produit Pr Where C.Codepr=Pr.Code And Pr.Codev=$user And C.Date BETWEEN '2023-$fv-01' And '2023-$fv-31' GROUP BY day(Date) Order By Total DESC Limit 1;";
-    $table = $pdo->query($sql); 
+    $table = $pdo->query($sql);
     while ($row = $table->fetch(PDO::FETCH_ASSOC)) {
         $bd = $row["day(Date)"];
         $bestb=$row["Total"];
@@ -63,10 +63,35 @@ if ($option=="month"){
     echo "</div>";
     echo "<div class='mounth'>";
     for($i=1 ;$i<=24;$i++){
-        echo " <button type='submit' name='sellerday'  value='$i'>$i</button>";
+        echo " <button type='submit' month=$value class='sellerday'  value='$i'>$i</button>";
     }
     echo "</div>";
 }
 
 ?>
-
+<script>
+    $(document).ready(function () {
+        let daysbtn=document.querySelectorAll(".sellerday");
+        daysbtn.forEach(element => {
+            element.addEventListener('click',()=>{
+                var value=element.value;
+                
+                var option=element.getAttribute('class');
+                var month=element.getAttribute('month');
+                $.ajax({
+            url: "sellerday.php",
+            method: "POST", 
+            data: {value:value,option:option,month:month}, 
+            success: function(response) {
+              
+                $(".cyear").html(response);
+            },
+            error: function(xhr, status, error) {
+              
+                console.log("Error:", error);
+            }
+        });
+            })
+        });
+        })  
+</script>
