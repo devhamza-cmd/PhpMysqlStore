@@ -10,7 +10,7 @@ $(document).ready(function () {
             data: {name:name,month:month}, 
             success: function(response) {
               
-                $(".table").html(response);
+                $(".cyear").html(response);
             },
             error: function(xhr, status, error) {
               
@@ -19,4 +19,4 @@ $(document).ready(function () {
         });
          })
     });
-        })
+        })  

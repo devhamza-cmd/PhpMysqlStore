@@ -23,7 +23,7 @@
       <div class="d-flex justify-content-center">
         <nav class='sticky-top first '>
           <div>
-            <div class="h p-5 nitem"><a class="nav-link" href="admin.php"><i
+            <div class="h p-5 nitem"><a class="nav-link" href="vendeur.php"><i
                   class="fa-brands fa-windows pe-2"></i>DASHBOARD</a></div>
             <div class="nitem"><a class="nav-link" href="users.php"><i class="fa-solid fa-registered pe-2"></i>Products
           
@@ -59,7 +59,7 @@
               
               while ($row = $table->fetch(PDO::FETCH_ASSOC)) {
                 $taotal = $row['sum(total)'];
-                echo "<h5>$$taotal</h5>";
+                echo "<h5 id='balance'>$$taotal</h5>";
               }
 
               ?>
@@ -69,7 +69,7 @@
             <i class="fa-solid fa-money-bill-transfer"></i>
             <br>
             <br>
-            <H5 style="opAcity:0.9">BALANCE PANIERE</H5>
+            <H5 style="opAcity:0.9" >BALANCE PANIERE</H5>
             <h4>
                 <!-- wiating money -->
               <?php
@@ -79,7 +79,7 @@
               while ($row = $table->fetch(PDO::FETCH_ASSOC)) {
                 $total = $row['total'];
                 $sum+=$total;
-              }echo "<h5>$$sum</h5>";
+              }echo "<h5 >$$sum</h5>";
               ?>
             </h4>
           </div>
@@ -87,11 +87,11 @@
             <i class="fa-solid fa-gauge"></i>
             <br>
             <br>
-            <H5 style="opAcity:0.9">AVG PER MOUNTH</H5>
+            <H5 style="opAcity:0.9" >AVG PER MOUNTH</H5>
             <h4>
               <?php
               $avg = $taotal / 12;
-              echo "<h5>$$avg</h5>";
+              echo "<h5 id='avg'>$$avg</h5>";
 
               ?>
             </h4>
@@ -100,7 +100,7 @@
             <i class="fa-solid fa-arrow-trend-up"></i>
             <br>
             <br>
-            <H5 style="opAcity:0.9">BEST MOUNTH</H5>
+            <H5 id="bm" style="opAcity:0.9">BEST MOUNTH</H5>
             <h4>
               <?php
               $sql = "SELECT monthname(date) ,sum(total) from commande GROUP by month(date) ORDER BY `sum(total)` DESC LIMIT 1
@@ -109,7 +109,7 @@
               $table = $pdo->query($sql);
               while ($row = $table->fetch(PDO::FETCH_ASSOC)) {
                 $total = $row['monthname(date)'];
-                echo "<h5>$total</h5>";
+                echo "<h5 id='dayname'>$total</h5>";
               }
               ?>
                 
@@ -121,7 +121,7 @@
             <br>
             <H5 style="opAcity:0.9">BEST BALANCE</H5>
             <h4><div class="table">
-              
+              test
             </div>
               <?php
               $sql = "SELECT COUNT(p.codepr), ((pr.prix)*(COUNT(p.codepr))) as 'total' from panier p , produit pr where pr.code=p.codepr and pr.codev=2 GROUP by p.codepr ORDER BY `total` DESC limit 1
@@ -131,7 +131,7 @@
               $table = $pdo->query($sql);
               while ($row = $table->fetch(PDO::FETCH_ASSOC)) {
                 $total = $row['total'];
-                echo "<h5>$$total</h5>";
+                echo "<h5 id='bc'>$$total</h5>";
               }
               ?>
             </h4>
