@@ -15,7 +15,42 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
+<?php
+session_start();
+                    if (!empty($_POST['com'])) {
 
+                        $codem = 1;
+                        if (file_exists('codecom.txt')) {
+                            $codem = unserialize(file_get_contents('codecom.txt'));
+                        } else {
+                            file_put_contents('codecom.txt', serialize($codem));
+                        }
+                        $user = $_SESSION['user'];
+                        $codead = $_POST['adresse'];
+                        $sql = "
+SELECT p.codepr,COUNT(p.codep) as 'quantite',(SELECT pr.prix from produit pr where pr.code=p.codepr GROUP BY pr.prix ),((SELECT pr.prix from produit pr where pr.code=p.codepr GROUP BY pr.prix )*COUNT(p.codep) ) as 'total' from panier p WHERE p.codeuser=$user GROUP BY p.codepr";
+                        $table = $pdo->query($sql);
+                        while ($row = $table->fetch(PDO::FETCH_BOTH)) {
+                            $codepr = $row['codepr'];
+                            $quantite = $row['quantite'];
+                            $date = date('Y-m-d H:i:s');
+                            $total = $row['total'];
+                            $sql = "insert into commande values('$codem',$codepr,$user,$codead,$quantite,$total,'$date')";
+                            $requete = $pdo->prepare($sql);
+                            $requete->execute();
+                            $codem++;
+                            file_put_contents('codecom.txt', serialize($codem));
+                            $sqldelete = "delete from panier where codeuser=$user";
+                            $requete2 = $pdo->prepare($sqldelete);
+                            $requete2->execute();
+                            $sqlupdate = "update produit set qtr=qtr-$quantite , qtv=$quantite where code=$codepr";
+                            $requete3 = $pdo->prepare($sqlupdate);
+                            $requete3->execute();
+                          header("location:commande.php");
+                            
+                        }
+                    }
+                    ?>
 <body style=' background-color: rgb(236, 236, 236);'>
     <style>
         .page-overlay {
@@ -83,7 +118,7 @@
             <div class='panierpr'>
                 <div>
                     <?php
-                    session_start();
+                    
                     $user = $_SESSION['user'];
                     $sql = "SELECT codeuser,codepr,count(codepr) from panier where codeuser='$user' GROUP BY codepr";
                     $table = $pdo->query($sql);
@@ -159,41 +194,7 @@
                     echo "<p class='price'>TOTAL :$$total</p>";
 
                     ?>
-                    <?php
-                    if (!empty($_POST['com'])) {
-
-                        $codem = 1;
-                        if (file_exists('codecom.txt')) {
-                            $codem = unserialize(file_get_contents('codecom.txt'));
-                        } else {
-                            file_put_contents('codecom.txt', serialize($codem));
-                        }
-                        $user = $_SESSION['user'];
-                        $codead = $_POST['adresse'];
-                        $sql = "
-SELECT p.codepr,COUNT(p.codep) as 'quantite',(SELECT pr.prix from produit pr where pr.code=p.codepr GROUP BY pr.prix ),((SELECT pr.prix from produit pr where pr.code=p.codepr GROUP BY pr.prix )*COUNT(p.codep) ) as 'total' from panier p WHERE p.codeuser=$user GROUP BY p.codepr";
-                        $table = $pdo->query($sql);
-                        while ($row = $table->fetch(PDO::FETCH_BOTH)) {
-                            $codepr = $row['codepr'];
-                            $quantite = $row['quantite'];
-                            $date = date('Y-m-d H:i:s');
-                            $total = $row['total'];
-                            $sql = "insert into commande values('$codem',$codepr,$user,$codead,$quantite,$total,'$date')";
-                            $requete = $pdo->prepare($sql);
-                            $requete->execute();
-                            $codem++;
-                            file_put_contents('codecom.txt', serialize($codem));
-                            $sqldelete = "delete from panier where codeuser=$user";
-                            $requete2 = $pdo->prepare($sqldelete);
-                            $requete2->execute();
-                            $sqlupdate = "update produit set qtr=qtr-$quantite , qtv=$quantite where code=$codepr";
-                            $requete3 = $pdo->prepare($sqlupdate);
-                            $requete3->execute();
-                          
-                            
-                        }
-                    }
-                    ?>
+                    
                     <form action="#" method="post">
                         <?php
                         $user = $_SESSION['user'];
@@ -211,8 +212,21 @@ SELECT p.codepr,COUNT(p.codep) as 'quantite',(SELECT pr.prix from produit pr whe
                             echo "<br>";
                         }
                         ?>
-                        <input class='ms-2 btn btn-primary' type="submit" class='btn btn-primary' name='com'
-                            value='confirmer'>
+                        <?php
+                        $sql="SELECT count(*) from adresse a where a.user=$user";
+                        $table = $pdo->query($sql);
+                        while ($row = $table->fetch(PDO::FETCH_ASSOC)) {
+                            $count = $row['count(*)'];
+                        } 
+                        if ($count>0){
+                            echo "<input class='ms-2 btn btn-primary' type='submit' class='btn btn-primary' name='com'
+                            value='confirmer'>";
+                        }else {
+                            echo "<span>you have to add an adresse <a href='compte.php'>here</a></span>";
+                        }
+                        ?>
+                        
+                            
 
                     </form>
                 </div>

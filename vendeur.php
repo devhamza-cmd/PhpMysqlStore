@@ -25,12 +25,12 @@
           <div>
             <div class="h p-5 nitem"><a class="nav-link" href="vendeur.php"><i
                   class="fa-brands fa-windows pe-2"></i>DASHBOARD</a></div>
-            <div class="nitem"><a class="nav-link" href="users.php"><i class="fa-solid fa-registered pe-2"></i>Products
+            <div class="nitem"><a class="nav-link" href="users.php"><i class="fa-solid fa-store0 pe-2"></i>Stores
           
             </div>
             <div class="nitem"><a class="nav-link" href="sellers.php"><i
                   class="fa-solid fa-users-between-lines pe-2"></i></i>Orders</a></div>
-            <div class="nitem"><a class="nav-link" href="adminpost.php"><i class="fa-solid fa-database pe-2"></i>USERS DATA</a></div>
+            <div class="nitem"><a class="nav-link" href="adminpost.php"><i class="fa-solid fa-database pe-2"></i>CUSTOMERS DATA</a></div>
          
             <div class="nitem"><a class="nav-link" href="index.php"><i
                   class="fa-solid fa-right-to-bracket pe-2"></i>EXIT</a></div>
@@ -90,7 +90,7 @@
             <H5 style="opAcity:0.9" >AVG PER MOUNTH</H5>
             <h4>
               <?php
-              $avg = $taotal / 12;
+              $avg = round(($taotal / 12),2);
               echo "<h5 id='avg'>$$avg</h5>";
 
               ?>

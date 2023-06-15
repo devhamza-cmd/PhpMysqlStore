@@ -176,11 +176,11 @@ select{
             $r=$pdo->prepare($sql);
             
             $r->execute();
-            $_SESSION['user']=$codeuser;
+            
             $codeuser++;
             file_put_contents("codeuser.txt",serialize($codeuser));
             $statu=0;
-            header("location:home.php");
+            header("location:index.php");
         } catch(PDOException $e){print_r($r2);
                 echo $e;
                 
