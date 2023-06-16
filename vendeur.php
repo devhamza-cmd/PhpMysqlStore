@@ -25,7 +25,7 @@
           <div>
             <div class="h p-5 nitem"><a class="nav-link" href="vendeur.php"><i
                   class="fa-brands fa-windows pe-2"></i>DASHBOARD</a></div>
-            <div class="nitem"><a class="nav-link" href="users.php"><i class="fa-solid fa-store0 pe-2"></i>Stores
+            <div class="nitem"><a class="nav-link" href="mangestores.php"><i class="fa-solid fa-store pe-2"></i>MANAGE STORES
           
             </div>
             <div class="nitem"><a class="nav-link" href="sellers.php"><i

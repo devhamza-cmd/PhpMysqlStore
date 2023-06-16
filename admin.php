@@ -84,7 +84,7 @@
             <H5 style="opAcity:0.9">AVG PER MOUNTH</H5>
             <h4>
               <?php
-              $avg = $taotal / 12;
+              $avg = round(($taotal / 12),2);
               echo "<h5>$$avg</h5>";
 
               ?>
