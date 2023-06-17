@@ -43,4 +43,58 @@ $(document).ready(function () {
     let inptimg=document.querySelector(".upimg");
     inptimg.click();
 });
+let inptimg=document.querySelector(".upimg");
+let deafultimg=document.querySelector(".upload img");
+
+
+inptimg.addEventListener('change',(event)=>{
+    var  file = event.target.files[0];
+    var  reader = new FileReader();
+    reader.onload = function (e) {
+        var imageData = e.target.result;
+        
+        deafultimg.setAttribute("src",`${imageData}`);
+    };
+    reader.readAsDataURL(file);
+})
+const uploadbtn = $(".create");
+
+uploadbtn.on("click", function () {
+    let id = uploadbtn.val();
+    let strname = document.querySelector(".storename").value;
+    let fileInput = document.getElementById('img');
+    let file = fileInput.files[0];
+
+    let reader = new FileReader();
+    reader.onload = function(event) {
+        let base64String = event.target.result;
+        if(!base64String){
+            console.log("empty")
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: "createstore.php",
+            data: {
+                id: id,
+                name:strname,
+                store: strname,
+                img:base64String,
+                
+            },
+            success: function (response) {
+                const closebtn=$(".closeBtn");
+                document.querySelector(".storename").value="";
+                closebtn.click();
+               
+            },
+            error: function(xhr, status, error) {
+                alert("you have to upload your store logo");
+              }
+        });
+    };
+
+    reader.readAsDataURL(file);
+});
+
 });

@@ -59,11 +59,15 @@
                 <div class="center">
 
                     <input type="text" class='storename'>
-
-                    <button class="btn btn-primary">CREATE</button>
+                    <?php
+                    $user=$_SESSION["user"];
+                    echo "<button value='$user' class='create btn btn-primary'>CREATE</button>"; 
+                    ?>
+                    
                     <span><i class="cstn fa-solid fa-upload"></i></span>
-                    <input class="upimg" type="file" accept="image/*" name="uploadfile" id="img" />
-                </div>
+                    <input value="2697432.png" class="upimg" type="file" accept="image/*" name="uploadfile" id="img" />
+                    
+                </div><p class="get"></p>
             </div>
             <nav>
                 <h3>MANAGE STORES</h3>

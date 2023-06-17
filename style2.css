@@ -327,14 +327,15 @@ input[type='file'] {
   }
 
 .upload img{
-    height: 250px;
+    height: 220px;
+    width: 220px;
     position: absolute;
     left: 550Px;
     top: 50px;
-    left: 450px;
+    left: 470px;
     background-color:  white;
     border-radius: 50%;
-    padding: 10px;
+    padding-right: 10px;
 }
 .upimg{
     background-color: transparent;
