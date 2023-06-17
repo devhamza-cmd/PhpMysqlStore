@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
@@ -43,11 +45,40 @@
             </div>
         </div>
         <div class="two">
-            
+            <div class="addcontainer">
+
+                <button class="m-5 btn btn-primary closeBtn">
+                    <span class="material-symbols-outlined">
+
+                        close
+                    </span>
+                </button>
+                <dssiv class="upload">
+                    <img class="" src="https://cdn-icons-png.flaticon.com/512/2697/2697432.png" alt="" srcset="">
+                </dssiv>
+                <div class="center">
+
+                    <input type="text" class='storename'>
+
+                    <button class="btn btn-primary">CREATE</button>
+                    <span><i class="cstn fa-solid fa-upload"></i></span>
+                    <input class="upimg" type="file" accept="image/*" name="uploadfile" id="img" />
+                </div>
+            </div>
             <nav>
                 <h3>MANAGE STORES</h3>
             </nav>
-            <div class="d-flex"></div>
+            <div class="ps-3 d-flex justify-content-center justify-content-between">
+                <button role='add' id='add' class="ctsmbtn">
+                    <H5 style="opAcity:0.9"><i class="fa-solid fa-plus"></i> ADD STORE</H5>
+                </button>
+                <button role='mod' class="ctsmbtn">
+                    <H5 style="opAcity:0.9"><i class="fa-solid fa-pen-to-square"></i> MODIFY STORE</H5>
+                </button>
+                <button role='sup' id='remove' class="ctsmbtn">
+                    <H5 style="opAcity:0.9"><i class="fa-solid fa-trash"></i> REMOVE STORE</H5>
+                </button>
+            </div>
         </div>
     </div>
 </body>

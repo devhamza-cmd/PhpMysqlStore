@@ -20,7 +20,27 @@ $(document).ready(function () {
         });
          })
     });
-        })  
-        
+        }) 
+$(document).ready(function () {
+    $('.ctsmbtn').on('click', function () {
+        var role=$(this).attr('role');
+        switch (role) {
+            case 'add':
+                
+                $(".addcontainer").css("display","block");
+                break;
+        }
+    }); 
+    
+});
+$(document).ready(function () {
+    const closebtn=$(".closeBtn");
+    closebtn.on('click', function () {
+        $(".addcontainer").css("display","none");
+    });
+    $(".cstn").on("click", function () {
 
-        
+    let inptimg=document.querySelector(".upimg");
+    inptimg.click();
+});
+});
