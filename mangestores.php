@@ -45,6 +45,62 @@
             </div>
         </div>
         <div class="two">
+        <style>
+                .loader {
+                    width: 48px;
+                    height: 48px;
+                    border: 5px solid #257DF8;
+                    border-bottom-color: transparent;
+                    border-radius: 50%;
+                    display: inline-block;
+                    box-sizing: border-box;
+
+                    animation: rotation 1s linear infinite;
+                }
+
+                #form-container2 {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    width: 80vw;
+
+                }
+
+                #overlay2 {
+                    z-index: 999999;
+                    position: fixed;
+                    top: 0;
+                    display: none;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    background-size: cover;
+                    background-position: center;
+
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                @keyframes rotation {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+
+                }
+            </style>
+            <div id="overlay2" class='overlay2'>
+
+                <div id="form-container2">
+
+                    <span class="loader"></span>
+                </div>
+
+            </div>
             <div class="addcontainer">
 
                 <button class="m-5 btn btn-primary closeBtn">
@@ -54,21 +110,23 @@
                     </span>
                 </button>
                 <dssiv class="upload">
-                    <img class="storelogo" src="https://cdn-icons-png.flaticon.com/512/2697/2697432.png" alt="" srcset="">
+                    <img class="storelogo" src="https://cdn-icons-png.flaticon.com/512/2697/2697432.png" alt=""
+                        srcset="">
                 </dssiv>
                 <div class="center">
 
                     <input type="text" class='storename'>
                     <?php
-                    $user=$_SESSION["user"];
-                    echo "<button value='$user' class='create btn btn-primary'>CREATE</button>"; 
+                    $user = $_SESSION["user"];
+                    echo "<button value='$user' class='create btn btn-primary'>CREATE</button>";
                     ?>
-                    
+
                     <span><i class="cstn fa-solid fa-upload"></i></span>
                     <input value="2697432.png" class="upimg" type="file" accept="image/*" name="uploadfile" id="img" />
-                    
+
                 </div>
-            </div><p class="get"></p>
+            </div>
+            <p class="get"></p>
             <nav>
                 <h3>MANAGE STORES</h3>
             </nav>

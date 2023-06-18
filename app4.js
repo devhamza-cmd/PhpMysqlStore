@@ -85,6 +85,10 @@ uploadbtn.on("click", function () {
                 document.querySelector(".storename").value="";
                 document.querySelector(".upimg").value='';
                 document.querySelector(".storelogo").src="https://cdn-icons-png.flaticon.com/512/2697/2697432.png";
+                document.querySelector(".overlay2").style.display="block";
+                setInterval(() => {
+                    document.querySelector(".overlay2").style.display="none";
+                }, 1500);
                 closebtn.click();
                 $(".get").html(response);
                
