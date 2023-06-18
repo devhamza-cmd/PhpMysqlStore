@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="two">
-        <style>
+            <style>
                 .loader {
                     width: 48px;
                     height: 48px;
@@ -140,6 +140,43 @@
                 <button role='sup' id='remove' class="ctsmbtn">
                     <H5 style="opAcity:0.9"><i class="fa-solid fa-trash"></i> REMOVE STORE</H5>
                 </button>
+            </div>
+            <div class="listofstores m-5">
+                <div class="storechild">
+                    <table>
+                        <thead>
+                            <td>logo</td>
+                            <td>Name</td>
+                            <td>N..Profit</td>
+                            <td>Creation date</td>
+                        </thead>
+                        <tbody>
+                        
+                        <?php 
+                        $sql="select * from store where codev=$user";
+                        $table = $pdo->query($sql);
+                        while ($row = $table->fetch(PDO::FETCH_BOTH)) {
+                            
+                            $logo=$row['image'];
+                            $nom=$row['nom'];
+                            $date=$row["date"];
+                            $sql2 = "SELECT sum(total) FROM commande c,produit p where c.codepr=p.code and codev=$user;";
+                            $table2 = $pdo->query($sql2);
+                            while ($row2 = $table2->fetch(PDO::FETCH_BOTH)) {
+                                $sum=$row2["sum(total)"];
+                            }
+                            echo "
+                             <tr>
+                                <td><img class='person' src='data:image/jpeg;base64," . base64_encode($logo) . "' alt=''></td>
+                                <td>$nom</td>
+                                <td>$$sum</td>
+                                <td>$date</td>
+                            </tr> ";
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

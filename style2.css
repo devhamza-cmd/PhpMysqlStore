@@ -404,3 +404,22 @@ input[type='file'] {
     padding-bottom: 1px;
     cursor: pointer;
 }
+.storechild{
+    background-color: #C4ddff;
+    min-height:430px ;
+    overflow-y: auto;
+}
+.storechild table thead{
+    font-weight: bolder;
+}
+.storechild table{
+    width: 100%;
+    font-size: 20px;
+    
+    
+}
+.person{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+}
