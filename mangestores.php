@@ -156,12 +156,15 @@
                         $sql="select * from store where codev=$user";
                         $table = $pdo->query($sql);
                         while ($row = $table->fetch(PDO::FETCH_BOTH)) {
-                            
+                            $codes=$row["codestore"];
                             $logo=$row['image'];
                             $nom=$row['nom'];
                             $date=$row["date"];
                             $sql2 = "SELECT sum(total) FROM commande c,produit p where c.codepr=p.code and codev=$user;";
                             $table2 = $pdo->query($sql2);
+                            print_r($table2);
+                            echo "<br>";
+                            echo "$codes";
                             while ($row2 = $table2->fetch(PDO::FETCH_BOTH)) {
                                 $sum=$row2["sum(total)"];
                             }
