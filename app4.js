@@ -68,9 +68,7 @@ uploadbtn.on("click", function () {
     let reader = new FileReader();
     reader.onload = function(event) {
         let base64String = event.target.result;
-        if(!base64String){
-            console.log("empty")
-        }
+       
         
         $.ajax({
             type: "POST",
@@ -85,7 +83,10 @@ uploadbtn.on("click", function () {
             success: function (response) {
                 const closebtn=$(".closeBtn");
                 document.querySelector(".storename").value="";
+                document.querySelector(".upimg").value='';
+                document.querySelector(".storelogo").src="https://cdn-icons-png.flaticon.com/512/2697/2697432.png";
                 closebtn.click();
+                $(".get").html(response);
                
             },
             error: function(xhr, status, error) {

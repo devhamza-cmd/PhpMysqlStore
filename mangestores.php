@@ -54,7 +54,7 @@
                     </span>
                 </button>
                 <dssiv class="upload">
-                    <img class="" src="https://cdn-icons-png.flaticon.com/512/2697/2697432.png" alt="" srcset="">
+                    <img class="storelogo" src="https://cdn-icons-png.flaticon.com/512/2697/2697432.png" alt="" srcset="">
                 </dssiv>
                 <div class="center">
 
@@ -67,8 +67,8 @@
                     <span><i class="cstn fa-solid fa-upload"></i></span>
                     <input value="2697432.png" class="upimg" type="file" accept="image/*" name="uploadfile" id="img" />
                     
-                </div><p class="get"></p>
-            </div>
+                </div>
+            </div><p class="get"></p>
             <nav>
                 <h3>MANAGE STORES</h3>
             </nav>
