@@ -1,16 +1,85 @@
 <?php 
 require("config.php");
-$sql="SELECT p.code as 'p',s.codestore as 's'  FROM produit p,store s WHERE p.codev=s.codev";
-$l=[];
-$table = $pdo->query($sql);
-while ($row = $table->fetch(PDO::FETCH_BOTH)) {
-    $codev=$row["s"];
-    $pcodev=$row['p'];
+$sql = "UPDATE produit SET codev = :codev WHERE code = :id";
+
+$stmt = $pdo->prepare($sql);
+$data = [
+    [1, 1],
+    [1, 1],
+    [1, 1],
+    [1, 1],
+    [2, 2],
+    [2, 2],
+    [2, 2],
+    [2, 2],
+    [2, 2],
+    [11, 2],
+    [11, 2],
+    [11, 2],
+    [11, 2],
+    [11, 2],
+    [29, 2],
+    [29, 2],
+    [29, 2],
+    [29, 2],
+    [29, 2],
+    [3, 3],
+    [3, 3],
+    [3, 3],
+    [3, 3],
+    [3, 3],
+    [3, 3],
+    [4, 4],
+    [4, 4],
+    [4, 4],
+    [4, 4],
+    [4, 4],
+    [4, 4],
+    [5, 5],
+    [5, 5],
+    [5, 5],
+    [5, 5],
+    [5, 5],
+    [5, 5],
+    [6, 6],
+    [6, 6],
+    [6, 6],
+    [6, 6],
+    [6, 6],
+    [6, 6],
+    [7, 7],
+    [7, 7],
+    [7, 7],
+    [7, 7],
+    [7, 7],
+    [8, 8],
+    [8, 8],
+    [8, 8],
+    [8, 8],
+    [8, 8],
+    [9, 9],
+    [9, 9],
+    [9, 9],
+    [9, 9],
+    [9, 9],
+    [9, 9],
+    [10, 10],
+    [10, 10],
+    [10, 10],
+    [10, 10],
+    [10, 10],
+];
+
+print_r($data);
+
+for ($i = 0; $i < count($data); $i++) {
+    $newCodev = $data[$i][0];
+    $id = $data[$i][1];
     
-    $sql="update produit set codev=$codev where code=$pcodev   ";
-    $r=$pdo->prepare($sql);
-    print_r($r);
-    $r->execute();
+    $stmt->bindParam(':codev', $newCodev);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
 }
-print_r($l);
+
+echo "Produit table updated successfully.";
 ?>

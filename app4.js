@@ -103,3 +103,23 @@ uploadbtn.on("click", function () {
 });
 
 });
+$(document).ready(function () {
+    const editBtns=document.querySelectorAll(".edit");
+   
+    const deletBtns=document.querySelectorAll(".delete");
+    editBtns.forEach(element => {
+        let codeStore=element.getAttribute('edit');
+        element.addEventListener("click",()=>{
+            $.ajax({
+                type: "POST",
+                url: "editstore.php",
+                data: {codeStore:codeStore},
+                success: function (response) {
+                    $(".editcontainer").html(response);
+                    document.querySelector(".editcontainer").style.display='flex';
+                }
+            });
+        })
+    });
+    
+});

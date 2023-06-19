@@ -109,10 +109,10 @@
                         close
                     </span>
                 </button>
-                <dssiv class="upload">
+                <div class="upload">
                     <img class="storelogo" src="https://cdn-icons-png.flaticon.com/512/2697/2697432.png" alt=""
                         srcset="">
-                </dssiv>
+                </div>
                 <div class="center">
 
                     <input type="text" class='storename'>
@@ -126,6 +126,9 @@
 
                 </div>
             </div>
+            <div class="editcontainer">
+                
+            </div>
             <p class="get"></p>
             <nav>
                 <h3>MANAGE STORES</h3>
@@ -134,12 +137,7 @@
                 <button role='add' id='add' class="ctsmbtn">
                     <H5 style="opAcity:0.9"><i class="fa-solid fa-plus"></i> ADD STORE</H5>
                 </button>
-                <button role='mod' class="ctsmbtn">
-                    <H5 style="opAcity:0.9"><i class="fa-solid fa-pen-to-square"></i> MODIFY STORE</H5>
-                </button>
-                <button role='sup' id='remove' class="ctsmbtn">
-                    <H5 style="opAcity:0.9"><i class="fa-solid fa-trash"></i> REMOVE STORE</H5>
-                </button>
+
             </div>
             <div class="listofstores m-5">
                 <div class="storechild">
@@ -149,34 +147,39 @@
                             <td>Name</td>
                             <td>N..Profit</td>
                             <td>Creation date</td>
+                            <td>edit</td>
+                            <td>delete</td>
                         </thead>
                         <tbody>
-                        
-                        <?php 
-                        $sql="select * from store where codev=$user";
-                        $table = $pdo->query($sql);
-                        while ($row = $table->fetch(PDO::FETCH_BOTH)) {
-                            $codes=$row["codestore"];
-                            $logo=$row['image'];
-                            $nom=$row['nom'];
-                            $date=$row["date"];
-                            $sql2 = "SELECT sum(total) FROM commande c,produit p where c.codepr=p.code and codev=$user;";
-                            $table2 = $pdo->query($sql2);
-                            print_r($table2);
-                            echo "<br>";
-                            echo "$codes";
-                            while ($row2 = $table2->fetch(PDO::FETCH_BOTH)) {
-                                $sum=$row2["sum(total)"];
-                            }
-                            echo "
+
+                            <?php
+                            $sql = "select * from store where codev=$user";
+                            $table = $pdo->query($sql);
+                            while ($row = $table->fetch(PDO::FETCH_BOTH)) {
+                                $codes = $row["codestore"];
+                                $logo = $row['image'];
+                                $nom = $row['nom'];
+                                $date = $row["date"];
+                                $sql2 = "SELECT sum(total) from commande c ,produit p where c.codepr=p.code and p.codev=$codes";
+                                $table2 = $pdo->query($sql2);
+                                $sum = 0;
+                                while ($row2 = $table2->fetch(PDO::FETCH_BOTH)) {
+                                    $sum = $row2["sum(total)"];
+                                }
+                                if (!$sum) {
+                                    $sum = 0;
+                                }
+                                echo "
                              <tr>
                                 <td><img class='person' src='data:image/jpeg;base64," . base64_encode($logo) . "' alt=''></td>
                                 <td>$nom</td>
                                 <td>$$sum</td>
                                 <td>$date</td>
+                                <td><i class='edit fa-solid fa-pen-to-square' edit='$codes'></i></td>
+                                <td><i delete='$codes' class='delete fa-solid fa-trash'></i></td>
                             </tr> ";
-                        }
-                        ?>
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
