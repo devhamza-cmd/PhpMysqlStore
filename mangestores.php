@@ -148,8 +148,7 @@
                             <td>Name</td>
                             <td>N..Profit</td>
                             <td>Creation date</td>
-                            <td>edit</td>
-                            <td>delete</td>
+                            <td>action</td>
                         </thead>
                         <tbody>
 
@@ -176,8 +175,8 @@
                                 <td>$nom</td>
                                 <td>$$sum</td>
                                 <td>$date</td>
-                                <td><i class='edit fa-solid fa-pen-to-square' edit='$codes'></i></td>
-                                <td><i delete='$codes' class='delete fa-solid fa-trash'></i></td>
+                     
+                                <td><i onclick='deleteFunc()' delete='$codes' class='delete fa-solid fa-trash'></i></td>
                             </tr> ";
                             }
                             ?>

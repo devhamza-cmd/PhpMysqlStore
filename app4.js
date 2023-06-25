@@ -91,6 +91,13 @@ uploadbtn.on("click", function () {
                 }, 1500);
                 closebtn.click();
                 $(".get").html(response);
+                $.ajax({
+                    type: "POST",
+                    url: "loadstores.php",
+                    success: function (response) {
+                        $(".listofstores").html(response);
+                    }
+                });
                
             },
             error: function(xhr, status, error) {
@@ -104,22 +111,19 @@ uploadbtn.on("click", function () {
 
 });
 $(document).ready(function () {
-    const editBtns=document.querySelectorAll(".edit");
-   
-    const deletBtns=document.querySelectorAll(".delete");
-    editBtns.forEach(element => {
-        let codeStore=element.getAttribute('edit');
-        element.addEventListener("click",()=>{
-            $.ajax({
-                type: "POST",
-                url: "editstore.php",
-                data: {codeStore:codeStore},
-                success: function (response) {
-                    $(".editcontainer").html(response);
-                    document.querySelector(".editcontainer").style.display='flex';
-                }
-            });
-        })
+    const deleteBtn=$(".delete");
+    deleteBtn.on('click',function () {
+        var codes=$(this).attr('delete');
+        var result = confirm("Do you want to proceed?");
+        if (result) {
+          $.ajax({
+            type: "POST",
+            url: "deletestore.php",
+            data: {codes:codes},
+            success: function (response) {
+                $('.listofstores').html(response);
+            }
+          });
+        } 
     });
-    
 });

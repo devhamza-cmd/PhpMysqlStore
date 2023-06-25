@@ -1,7 +1,11 @@
 <?php
 require("config.php");
 session_start();
-$user=$_SESSION['user'];
+$user=$_SESSION['user']; 
+$codes=$_POST['codes'];
+$sql="delete from store where codestore=$codes";
+$r=$pdo->prepare($sql);
+$r->execute();
 ?>
 <div class='zaba'></div>
                 <div class="storechild">
